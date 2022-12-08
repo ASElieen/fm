@@ -11,5 +11,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     },
     extensions: ['.js', '.vue', '.json'],
+  },
+  server: {
+    proxy: {
+      '/api': {
+        //代理之后的请求地址
+        target: 'https://api.imooc-front.lgdsunday.club',
+        //跨域配置
+        changeOrigin: true
+      }
+    }
   }
 })

@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@vueuse/core": "^9.6.0",
+    "axios": "^1.2.1",
     "sass": "^1.56.1",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"

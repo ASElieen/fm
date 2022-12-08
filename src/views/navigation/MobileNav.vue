@@ -1,10 +1,9 @@
 <template>
-    <NavigationVue />
+    <div>移动端nav</div>
 </template>
 
 <script setup>
 import { } from "vue"
-import NavigationVue from "../navigation/Navigation.vue";
 </script>
 
 <style lang="scss" scoped>
