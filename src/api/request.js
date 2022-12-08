@@ -10,4 +10,13 @@ service.interceptors.request.use((config) => {
     return config
 })
 
+service.interceptors.response.use((res) => {
+    const { success, message, data } = res.data
+    if (success) {
+        return data
+    } else {
+        return Promise.reject(new Error(message))
+    }
+})
+
 export default service
