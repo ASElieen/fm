@@ -21,13 +21,16 @@
                 {{ item.name }}
             </li>
         </ul>
-        <Popup v-model="isVisible"></Popup>
+        <Popup v-model="isVisible">
+            <MenuVue :categorys="data" @on-item-click="onItemClick" />
+        </Popup>
     </div>
 </template>
 
 <script setup>
 import { ref, watch, onBeforeUpdate } from "vue"
 import { useScroll } from '@vueuse/core'
+import MenuVue from "@/components/Menu/Menu.vue";
 
 const sliderStyle = ref({
     transform: 'translateX(0px)',
@@ -71,6 +74,7 @@ watch(currentItemIndex, (val) => {
 //item点击事件
 const onItemClick = (index) => {
     currentItemIndex.value = index
+    isVisible.value = false
 }
 
 //控制popup展示
@@ -80,6 +84,7 @@ const isVisible = ref(false)
 const onShowPopUp = () => {
     isVisible.value = true
 }
+
 </script>
 
 <style lang="scss" scoped>
