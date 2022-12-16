@@ -2,18 +2,18 @@
     <div class="bg-white sticky top-0 left-0 z-10">
         <ul class="relative flex overflow-x-auto p-1 text-xs text-zinc-600 overflow-hidden" ref="ulTarget">
             <!--右侧按钮-->
-            <li class="fixed top-0 right-[-1px] h-4 px-1 ml-4 flex items-center bg-white z-20 shadow-l-white">
-                <SvgIconVue class="w-3 h-3" name="hamburger" />
+            <li class="fixed top-0 right-[-1px] h-5 px-1 py-0.5 ml-4 flex items-center bg-white z-20 shadow-l-white">
+                <SvgIconVue class="w-3 h-4" name="hamburger" />
             </li>
 
             <!--滑块-->
             <li ref='sliderTarget' :style="sliderStyle"
-                class="absolute h-[19px] bg-zinc-900 rounded-lg duration-200 top-0">
+                class="absolute h-[19px] bg-zinc-900 rounded-lg duration-200 top-0 mt-[1px]">
             </li>
 
 
             <li v-for="(item, index) in data" :key="item.id"
-                class="shrink-0 px-1.5 py-0.5 pb-2 z-10 duration-200 last:mr-5" :ref="setItemRef"
+                class="shrink-0 px-1.5 py-1 pb-2 z-10 duration-200 last:mr-5" :ref="setItemRef"
                 @click="onItemClick(index)" :class="{
                     'text-zinc-100 ': currentItemIndex === index
                 }">
@@ -30,7 +30,7 @@ import SvgIconVue from '@/libs/SvgIcon/SvgIcon.vue'
 
 const sliderStyle = ref({
     transform: 'translateX(0px)',
-    width: '60px'
+    width: '52px'
 })
 
 defineProps({
@@ -62,7 +62,7 @@ watch(currentItemIndex, (val) => {
     //设置sliderStyle
     sliderStyle.value = {
         // ul 横向滚动位置 + 当前元素的 left 偏移量
-        transform: `translateX(${ulScrollLeft.value + left - 5 + 'px'})`,
+        transform: `translateX(${ulScrollLeft.value + left - 4 + 'px'})`,
         width: width + 'px'
     }
 })
