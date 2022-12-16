@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen">
-        <PCHeaderVue></PCHeaderVue>
-        <PCMainVue></PCMainVue>
+        <PCHeaderVue class="h-header"></PCHeaderVue>
+        <PCMainVue class="h-main"></PCMainVue>
         <PCFloatIconVue></PCFloatIconVue>
     </div>
 </template>
