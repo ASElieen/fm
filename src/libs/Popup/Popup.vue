@@ -3,13 +3,13 @@
         <Teleport to="body">
             <!--蒙版-->
             <Transition name="fade">
-                <div class="w-screen h-screen bg-zinc-900/80 z-40 fixed top-0 left-0" v-if="modelValue"
-                    @click="emits('update:modelValue', false)">
+                <div class="w-screen h-screen bg-zinc-900/80 z-40 fixed top-0 left-0" v-if="isOpen"
+                    @click="isOpen = false">
                 </div>
             </Transition>
             <!--内容-->
             <Transition name="popup">
-                <div :="$attrs" class="w-screen bg-white z-50 fixed bottom-0" v-if="modelValue">
+                <div :="$attrs" class="w-screen bg-white z-50 fixed bottom-0" v-if="isOpen">
                     <slot />
                 </div>
             </Transition>
@@ -19,7 +19,7 @@
 
 <script setup>
 import { watch } from "vue"
-import { useScrollLock } from '@vueuse/core'
+import { useScrollLock, useVModel } from '@vueuse/core'
 const props = defineProps({
     modelValue: {
         required: true,
@@ -27,11 +27,13 @@ const props = defineProps({
     }
 })
 
-const emits = defineEmits(['update:modelValue'])
+defineEmits(['update:modelValue'])
+
+const isOpen = useVModel(props)
 
 //锁定滚动
 const isLocked = useScrollLock(document.body)
-watch(() => props.modelValue, (val) => {
+watch(isOpen, (val) => {
     isLocked.value = val
 },
     {
