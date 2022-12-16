@@ -1,9 +1,12 @@
-import SvgIcon from './SvgIcon/SvgIcon.vue'
-import Popup from './Popup/Popup.vue'
+import { defineAsyncComponent } from 'vue'
 
 export default {
     install(app) {
-        app.component('SvgIcon', SvgIcon)
-        app.component('Popup', Popup)
+        const components = import.meta.glob('./*/*.vue')
+        for (const [fullpath, fn] of Object.entries(components)) {
+            //拼接组件
+            const componentName = fullpath.split('/')[1]
+            app.component(componentName, defineAsyncComponent(fn))
+        }
     }
 }
