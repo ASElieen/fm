@@ -1,6 +1,6 @@
 <template>
     <div class="h-screen">
-        <PCHeaderVue></PCHeaderVue>
+        <PCHeaderVue class="h-header"></PCHeaderVue>
         <PCMainVue class="h-main"></PCMainVue>
         <PCFloatIconVue></PCFloatIconVue>
     </div>

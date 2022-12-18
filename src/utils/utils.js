@@ -14,6 +14,6 @@ export const useRem = () => {
         //根元素fontsize标准为屏幕宽度/10
         let fontSize = window.innerWidth / 10
         fontSize = fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize
-        html.style.fontSzie = fontSize + 'px'
+        html.style.fontSize = fontSize + 'px'
     })
 }

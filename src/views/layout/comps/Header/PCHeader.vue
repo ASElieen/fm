@@ -1,10 +1,10 @@
 <template>
     <div class="w-full bg-white border-b border-b-zinc-200 px-2 py-1">
-        <div class="flex items-center">
+        <div class="flex items-center w-full">
             <img class="h-4 cursor-pointer mr-2"
                 src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png" alt="" @click="onToHome">
 
-            <HeaderSearchVue class="mr-1"></HeaderSearchVue>
+            <HeaderSearchVue class="mr-1 flex-grow"></HeaderSearchVue>
             <HeaderThemeVue class="mr-1"></HeaderThemeVue>
             <HeaderMyVue></HeaderMyVue>
         </div>
