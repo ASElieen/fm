@@ -70,6 +70,16 @@ const props = defineProps({
             if (!result) throw new Error(`size必须是${keys.join(',')}中的一个`)
             return result
         }
+    },
+    //是否需要点击动画
+    isActiveAni: {
+        type: Boolean,
+        default: true
+    },
+    //加载状态
+    loading: {
+        type: Boolean,
+        default: false
     }
 })
 //区分icon和text
