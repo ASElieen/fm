@@ -1,5 +1,17 @@
 <template>
-    <div></div>
+    <button class="text-sm text-center rounded duration-150 flex justify-center items-center" :class="[
+        typeEnum[type],
+        sizeEnum[sizeKey].button,
+        { 'active:scale-105': isActiveAni }
+    ]">
+        <!--loading-->
+        <SvgIconVue v-if="loading" name="loading" class="w-2 h-2 animate-spin mr-1" />
+        <!--icon按钮-->
+        <SvgIconVue v-if="icon" :name="icon" class="m-auto" :class="sizeEnum[sizeKey].icon" :color="iconColor"
+            :fillClass="iconClass" />
+        <!--文字按钮-->
+        <slot v-else />
+    </button>
 </template>
 
 <script>
@@ -32,6 +44,7 @@ const sizeEnum = {
 
 <script setup>
 import { computed } from "vue"
+import SvgIconVue from "../SvgIcon/SvgIcon.vue";
 //通过props控制按钮
 const props = defineProps({
     icon: {
