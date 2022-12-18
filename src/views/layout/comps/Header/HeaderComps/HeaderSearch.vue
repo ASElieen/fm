@@ -1,5 +1,5 @@
 <template>
-    <div>header</div>
+    <div>Search</div>
 </template>
 
 <script setup>
