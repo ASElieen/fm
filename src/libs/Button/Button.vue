@@ -31,7 +31,7 @@ const sizeEnum = {
 </script>
 
 <script setup>
-import { } from "vue"
+import { computed } from "vue"
 //通过props控制按钮
 const props = defineProps({
     icon: {
@@ -82,6 +82,12 @@ const props = defineProps({
         default: false
     }
 })
+
+//如果是icon图标 校验后补充icon前缀
+const sizeKey = computed(() => {
+    return props.icon ? 'icon-' + props.size : props.size
+})
+
 //区分icon和text
 
 //根据数据实现视图
