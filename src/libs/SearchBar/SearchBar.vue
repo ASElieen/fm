@@ -10,7 +10,8 @@
 
         <!--删除按钮-->
         <SvgIconVue name="input-delete"
-            class="h-1.5 w-1.5 absolute translate-y-[-50%] top-[50%] right-9 cursor-pointer duration-500" />
+            class="h-1.5 w-1.5 absolute translate-y-[-50%] top-[50%] right-9 cursor-pointer duration-500"
+            v-show="inputValue" @click="clearInputValue" />
 
         <!--分割线-->
         <div
@@ -53,6 +54,10 @@ const props = defineProps({
 defineEmits([EMIT_UPDATE_MODELVALUE])
 
 const inputValue = useVModel(props)
+
+const clearInputValue = () => {
+    inputValue.value = ''
+}
 </script>
 
 <style lang="scss" scoped>
