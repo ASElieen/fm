@@ -6,7 +6,7 @@
         <!--输入框-->
         <input type="text"
             class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 caret-zinc-400 rounded-xl text-zinc-900 text-sm tracking-wide font-semibold border border-zinc-100 focus:border-red-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
-            placeholder="搜索">
+            placeholder="搜索" v-model="inputValue">
 
         <!--删除按钮-->
         <SvgIconVue name="input-delete"
@@ -31,10 +31,26 @@
     </div>
 </template>
 
+<script>
+const EMIT_UPDATE_MODELVALUE = 'update:modelValue'
+</script>
+
 <script setup>
 import { } from "vue"
+import { useVModel } from '@vueuse/core'
 import SvgIconVue from "../SvgIcon/SvgIcon.vue";
 import ButtonVue from "../Button/Button.vue";
+
+const props = defineProps({
+    modelValue: {
+        required: true,
+        type: String
+    }
+})
+
+defineEmits([EMIT_UPDATE_MODELVALUE])
+
+const inputValue = useVModel(props)
 </script>
 
 <style lang="scss" scoped>
