@@ -1,12 +1,12 @@
 <template>
-    <div class="group relative p-0.5 rounded-xl border-white duration-500 hover:bg-red-100/40">
+    <div class="group relative p-0.5 rounded-xl border-white duration-500 hover:bg-red-100/40" ref="containerTarget">
         <!--搜索图标-->
         <SvgIconVue class="w-1.5 h-1.5 absolute translate-y-[-50%] top-[50%] left-2" name="search" color="#707070" />
 
         <!--输入框-->
         <input type="text"
             class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 caret-zinc-400 rounded-xl text-zinc-900 text-sm tracking-wide font-semibold border border-zinc-100 focus:border-red-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
-            placeholder="搜索" v-model="inputValue" @keyup.enter="onSearchHandler">
+            placeholder="搜索" v-model="inputValue" @keyup.enter="onSearchHandler" @focus="onFocusHandler">
 
         <!--删除按钮-->
         <SvgIconVue name="input-delete"
@@ -26,8 +26,8 @@
 
         <!--下拉卡片-->
         <Transition name="slide">
-            <div
-                class="max-h-[368px] w-full text-base overflow-auto bg-white absolute z-20 left-0 top-[56px] p-2 rounded border border-zinc-200 duration-200 hover:shadow-3xl">
+            <div class="max-h-[368px] w-full text-base overflow-auto bg-white absolute z-20 left-0 top-[56px] p-2 rounded border border-zinc-200 duration-200 hover:shadow-3xl"
+                v-if="$slots.dropdown" v-show="isFocus">
                 <slot name="dropdown" />
             </div>
         </Transition>
@@ -40,8 +40,8 @@ const EMIT_SEARCH = 'search'
 </script>
 
 <script setup>
-import { } from "vue"
-import { useVModel } from '@vueuse/core'
+import { ref } from "vue"
+import { useVModel, onClickOutside } from '@vueuse/core'
 import SvgIconVue from "../SvgIcon/SvgIcon.vue";
 import ButtonVue from "../Button/Button.vue";
 
@@ -65,6 +65,18 @@ const clearInputValue = () => {
 const onSearchHandler = () => {
     emits(EMIT_SEARCH, inputValue)
 }
+
+//input是否获取到焦点
+const isFocus = ref(false)
+const containerTarget = ref('')
+const onFocusHandler = () => {
+    isFocus.value = true
+}
+
+//点击下拉弹层之外隐藏弹层
+onClickOutside(containerTarget, () => {
+    isFocus.value = false
+})
 
 </script>
 
