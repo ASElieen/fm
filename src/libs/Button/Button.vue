@@ -98,7 +98,7 @@ const props = defineProps({
     }
 })
 
-const emits = defineEmits(EMITS_CLICK)
+const emits = defineEmits([EMITS_CLICK])
 
 //如果是icon图标 校验后补充icon前缀
 const sizeKey = computed(() => {
