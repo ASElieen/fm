@@ -6,7 +6,7 @@
         <!--输入框-->
         <input type="text"
             class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 caret-zinc-400 rounded-xl text-zinc-900 text-sm tracking-wide font-semibold border border-zinc-100 focus:border-red-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
-            placeholder="搜索" v-model="inputValue">
+            placeholder="搜索" v-model="inputValue" @keyup.enter="onSearchHandler">
 
         <!--删除按钮-->
         <SvgIconVue name="input-delete"
@@ -21,7 +21,7 @@
         <!--搜索按钮-->
         <ButtonVue
             class="opacity-0 absolute translate-y-[-50%] top-[50%] right-1 rounded-full group-hover:opacity-100 duration-500"
-            icon="search" iconColor="#ffffff">
+            icon="search" iconColor="#ffffff" @click="onSearchHandler">
         </ButtonVue>
 
         <!--下拉卡片-->
@@ -36,6 +36,7 @@
 
 <script>
 const EMIT_UPDATE_MODELVALUE = 'update:modelValue'
+const EMIT_SEARCH = 'search'
 </script>
 
 <script setup>
@@ -51,13 +52,20 @@ const props = defineProps({
     }
 })
 
-defineEmits([EMIT_UPDATE_MODELVALUE])
+const emits = defineEmits([EMIT_UPDATE_MODELVALUE, EMIT_SEARCH])
 
 const inputValue = useVModel(props)
 
+//清除输入框
 const clearInputValue = () => {
     inputValue.value = ''
 }
+
+//搜索
+const onSearchHandler = () => {
+    emits(EMIT_SEARCH, inputValue)
+}
+
 </script>
 
 <style lang="scss" scoped>
