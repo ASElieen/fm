@@ -18,7 +18,8 @@
         </div>
 
         <!--搜索按钮-->
-        <div></div>
+        <ButtonVue class="absolute translate-y-[-50%] top-[50%] right-1 rounded-full" icon="search" iconColor="#ffffff">
+        </ButtonVue>
 
         <!--下拉卡片-->
         <Transition name="slide">
@@ -33,6 +34,7 @@
 <script setup>
 import { } from "vue"
 import SvgIconVue from "../SvgIcon/SvgIcon.vue";
+import ButtonVue from "../Button/Button.vue";
 </script>
 
 <style lang="scss" scoped>

@@ -3,7 +3,7 @@
         typeEnum[type],
         sizeEnum[sizeKey].button,
         { 'active:scale-105': isActiveAni }
-    ]">
+    ]" @click.stop="onBtnClick">
         <!--loading-->
         <SvgIconVue v-if="loading" name="loading" class="w-2 h-2 animate-spin mr-1" />
         <!--icon按钮-->
@@ -40,6 +40,8 @@ const sizeEnum = {
         icon: 'w-1.5 h-1.5'
     }
 }
+
+const EMITS_CLICK = 'click'
 </script>
 
 <script setup>
@@ -96,16 +98,18 @@ const props = defineProps({
     }
 })
 
+const emits = defineEmits(EMITS_CLICK)
+
 //如果是icon图标 校验后补充icon前缀
 const sizeKey = computed(() => {
     return props.icon ? 'icon-' + props.size : props.size
 })
 
-//区分icon和text
-
-//根据数据实现视图
-
 //点击事件
+const onBtnClick = () => {
+    if (props.loading) return
+    emits(EMITS_CLICK)
+}
 </script>
 
 <style lang="scss" scoped>
