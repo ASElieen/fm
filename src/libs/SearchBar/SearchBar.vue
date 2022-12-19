@@ -18,7 +18,9 @@
         </div>
 
         <!--搜索按钮-->
-        <ButtonVue class="absolute translate-y-[-50%] top-[50%] right-1 rounded-full" icon="search" iconColor="#ffffff">
+        <ButtonVue
+            class="opacity-0 absolute translate-y-[-50%] top-[50%] right-1 rounded-full group-hover:opacity-100 duration-500"
+            icon="search" iconColor="#ffffff">
         </ButtonVue>
 
         <!--下拉卡片-->
