@@ -21,6 +21,8 @@ const PROP_TOP_RIGHT = 'top-right'
 const PROP_BOTTOM_LEFT = 'bottom-left'
 const PROP_BOTTOM_RIGHT = 'bottom-right'
 
+const DELAY_TIME = 100
+
 // 定义指定位置的 Enum
 const placementEnum = [
     PROP_TOP_LEFT,
@@ -31,7 +33,7 @@ const placementEnum = [
 </script>
 
 <script setup>
-import { ref, watch } from "vue"
+import { ref, watch, nextTick } from "vue"
 const props = defineProps({
     placement: {
         type: String,
@@ -46,14 +48,19 @@ const props = defineProps({
     }
 })
 const isVisible = ref(false)
+let timeout = null
 
 //鼠标移入和移出行为
 const onMouseEnter = () => {
     isVisible.value = true
+    if (timeout) clearTimeout(timeout)
 }
 
 const onMouseLeave = () => {
-    isVisible.value = false
+    timeout = setTimeout(() => {
+        isVisible.value = false
+        timeout = null
+    }, DELAY_TIME)
 }
 
 //计算元素尺寸 控制气泡相对位置
@@ -109,6 +116,7 @@ watch(isVisible, (val) => {
         }
     })
 })
+
 </script>
 
 <style lang="scss" scoped>
