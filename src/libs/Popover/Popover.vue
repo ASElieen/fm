@@ -14,8 +14,36 @@
     </div>
 </template>
 
+<script>
+const PROP_TOP_LEFT = 'top-left'
+const PROP_TOP_RIGHT = 'top-right'
+const PROP_BOTTOM_LEFT = 'bottom-left'
+const PROP_BOTTOM_RIGHT = 'bottom-right'
+
+// 定义指定位置的 Enum
+const placementEnum = [
+    PROP_TOP_LEFT,
+    PROP_TOP_RIGHT,
+    PROP_BOTTOM_LEFT,
+    PROP_BOTTOM_RIGHT
+]
+</script>
+
 <script setup>
 import { ref } from "vue"
+const props = defineProps({
+    placement: {
+        type: String,
+        default: 'bottom-left',
+        validator(val) {
+            const result = placementEnum.includes(val)
+            if (!result) {
+                throw new Error(`placement属性必须是${placementEnum.join(',')}中的一项`)
+            }
+            return result
+        }
+    }
+})
 const isVisible = ref(false)
 
 //鼠标移入和移出行为
