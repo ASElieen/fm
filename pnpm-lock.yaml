@@ -11,6 +11,7 @@ specifiers:
   vite: ^3.2.3
   vite-plugin-svg-icons: ^2.0.1
   vue: ^3.2.41
+  vue-persistedstate: ^1.2.5
   vue-router: ^4.1.6
   vuex: ^4.1.0
 
@@ -19,6 +20,7 @@ dependencies:
   axios: 1.2.1
   sass: 1.56.1
   vue: 3.2.45
+  vue-persistedstate: 1.2.5
   vue-router: 4.1.6_vue@3.2.45
   vuex: 4.1.0_vue@3.2.45
 
@@ -137,6 +139,14 @@ packages:
     dependencies:
       '@vue/compiler-core': 3.2.45
       '@vue/shared': 3.2.45
+
+  /@vue/compiler-sfc/2.7.14:
+    resolution: {integrity: sha512-aNmNHyLPsw+sVvlQFQ2/8sjNuLtK54TC6cuKnVzAY93ks4ZBrvwQSnkkIh7bsbNhum5hJBS00wSDipQ937f5DA==}
+    dependencies:
+      '@babel/parser': 7.20.5
+      postcss: 8.4.19
+      source-map: 0.6.1
+    dev: false
 
   /@vue/compiler-sfc/3.2.45:
     resolution: {integrity: sha512-1jXDuWah1ggsnSAOGsec8cFjT/K6TMZ0sPL3o3d84Ft2AYZi2jWJgRMjw4iaK0rBfA89L5gw427H4n1RZQBu6Q==}
@@ -534,6 +544,10 @@ packages:
 
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -2124,6 +2138,12 @@ packages:
       vue: 3.2.45
     dev: false
 
+  /vue-persistedstate/1.2.5:
+    resolution: {integrity: sha512-weMmgS06kflxdCTm+7Wax6tjeCHMq6dARLSeMj+HPQVUNGkC+wsDYkLhkWyg8MlcAVyFnoRpFTPNbJN3wXDjcg==}
+    dependencies:
+      vue: 2.7.14
+    dev: false
+
   /vue-router/4.1.6_vue@3.2.45:
     resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
     peerDependencies:
@@ -2131,6 +2151,13 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.4.5
       vue: 3.2.45
+    dev: false
+
+  /vue/2.7.14:
+    resolution: {integrity: sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ==}
+    dependencies:
+      '@vue/compiler-sfc': 2.7.14
+      csstype: 3.1.1
     dev: false
 
   /vue/3.2.45:

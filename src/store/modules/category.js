@@ -1,5 +1,5 @@
 //navigationBar中的category数据
-import { CATEGORY_NORMAL_DATA } from '@/constants/constants'
+import { ALL_CATEGORY_ITEM, CATEGORY_NORMAL_DATA } from '@/constants/constants'
 import { getCategory } from '@/api/api'
 export default {
     //独立作用域
