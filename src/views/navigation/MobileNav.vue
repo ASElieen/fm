@@ -13,7 +13,7 @@
             </li>
 
 
-            <li v-for="(item, index) in data" :key="item.id"
+            <li v-for="(item, index) in $store.getters.categorys" :key="item.id"
                 class="shrink-0 px-1.5 py-1 pb-2 z-10 duration-200 last:mr-5" :ref="setItemRef"
                 @click="onItemClick(index)" :class="{
                     'text-zinc-100 ': currentItemIndex === index
@@ -22,7 +22,7 @@
             </li>
         </ul>
         <Popup v-model="isVisible">
-            <MenuVue :categorys="data" @on-item-click="onItemClick" />
+            <MenuVue @on-item-click="onItemClick" />
         </Popup>
     </div>
 </template>
@@ -37,12 +37,6 @@ const sliderStyle = ref({
     width: '36px'
 })
 
-defineProps({
-    data: {
-        type: Array,
-        required: true
-    }
-})
 
 //获取选中的item下标
 const currentItemIndex = ref(0)

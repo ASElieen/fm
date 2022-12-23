@@ -5,7 +5,7 @@
         </h2>
 
         <ul class="overflow-y-scroll">
-            <li v-for="(item, index) in categorys" :key="item.id"
+            <li v-for="(item, index) in $store.getters.categorys" :key="item.id"
                 class="text-lg text-zinc-900 px-1 py-1.5 duration-100 active:bg-zinc-100"
                 @click="$emit('onItemClick', index)">
                 {{ item.name }}
@@ -16,12 +16,6 @@
 
 <script setup>
 import { } from "vue"
-defineProps({
-    categorys: {
-        type: Array,
-        required: true
-    }
-})
 
 defineEmits(['onItemClick'])
 </script>
