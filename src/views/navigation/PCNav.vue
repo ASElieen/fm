@@ -10,8 +10,11 @@
             </div>
 
             <!-- category item -->
-            <li v-for="item in $store.getters.categorys" :key="item.id"
-                class="shrink-0 px-1.5 py-0 z-10 duration-200 last:mr-4 text-zinc-900 text-base font-bold h-4 leading-4 cursor-pointer hover:bg-zinc-200 rounded mr-1 mb-1">
+            <li v-for="(item, index) in $store.getters.categorys" :key="item.id"
+                class="shrink-0 px-1.5 py-0 z-10 duration-200 last:mr-4 text-zinc-900 text-base font-bold h-4 leading-4 cursor-pointer hover:bg-zinc-200 rounded mr-1 mb-1"
+                :class="{
+                    'text-zinc-900 bg-zinc-200 ': currentIndex === index
+                }" @click="onItemClick(index)">
                 {{ item.name }}
             </li>
         </ul>
@@ -26,6 +29,12 @@ import SvgIconVue from "@/libs/SvgIcon/SvgIcon.vue";
 const isOpen = ref(false)
 const triggerState = () => {
     isOpen.value = !isOpen.value
+}
+
+//选中状态
+const currentIndex = ref(0)
+const onItemClick = (index) => {
+    currentIndex.value = index
 }
 </script>
 
