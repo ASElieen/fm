@@ -9,7 +9,7 @@
 <script setup>
 import { } from "vue"
 import PCFloatIconVue from "./comps/PCFloatIcon.vue";
-import PCHeaderVue from "./comps/Header/PCHeader.vue";
+import PCHeaderVue from "./comps/PCHeader.vue";
 import PCMainVue from "./comps/PCMain.vue";
 </script>
 

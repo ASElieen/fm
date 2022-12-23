@@ -13,9 +13,9 @@
 <script setup>
 import { } from "vue"
 import { useRouter } from "vue-router";
-import HeaderSearchVue from "./HeaderComps/HeaderSearch.vue";
-import HeaderThemeVue from "./HeaderComps/HeaderTheme.vue";
-import HeaderMyVue from "./HeaderComps/HeaderMy.vue";
+import HeaderSearchVue from "./Header/HeaderComps/HeaderSearch.vue";
+import HeaderThemeVue from "./Header/HeaderComps/HeaderTheme.vue";
+import HeaderMyVue from "./Header/HeaderComps/HeaderMy.vue";
 
 const route = useRouter()
 const onToHome = () => {
