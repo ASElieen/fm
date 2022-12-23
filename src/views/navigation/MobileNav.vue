@@ -34,7 +34,7 @@ import MenuVue from "@/components/Menu/Menu.vue";
 
 const sliderStyle = ref({
     transform: 'translateX(0px)',
-    width: '36px'
+    width: '42px'
 })
 
 
