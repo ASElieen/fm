@@ -1,10 +1,12 @@
 <template>
     <div class="bg-white sticky top-0 left-0 w-full z-10">
-        <ul
-            class="w-[800px] relative flex flex-wrap justify-center overflow-x-auto px-[10px] py-1 text-xs text-zinc-600 duration-300 overflow-hidden mx-auto">
+        <ul class="w-[800px] relative flex flex-wrap justify-center overflow-x-auto px-[10px] py-1 text-xs text-zinc-600 duration-300 overflow-hidden mx-auto"
+            :class="[isOpen ? 'h-[206px]' : 'h-[56px]']">
+
             <!-- lg下展开箭头 -->
-            <div class="absolute right-1 bottom-1 z-20 p-1 rounded cursor-pointer duration-200 hover:bg-zinc-200">
-                <SvgIconVue name="unfold" class="w-1 h-1" fillClass="fill-zinc-900" />
+            <div class="absolute right-1 bottom-1 z-20 p-1 rounded cursor-pointer duration-200 hover:bg-zinc-200"
+                @click="triggerState">
+                <SvgIconVue :name="isOpen ? 'fold' : 'unfold'" class="w-1 h-1" fillClass="fill-zinc-900" />
             </div>
 
             <!-- category item -->
@@ -17,8 +19,14 @@
 </template>
 
 <script setup>
-import { } from "vue"
+import { ref } from "vue"
 import SvgIconVue from "@/libs/SvgIcon/SvgIcon.vue";
+
+//状态切换处理
+const isOpen = ref(false)
+const triggerState = () => {
+    isOpen.value = !isOpen.value
+}
 </script>
 
 <style lang="scss" scoped>
