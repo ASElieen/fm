@@ -2,20 +2,20 @@
     <div class="bg-white sticky top-0 left-0 z-10">
         <ul class="relative flex overflow-x-auto p-1 text-xs text-zinc-600 overflow-hidden" ref="ulTarget">
             <!--右侧按钮-->
-            <li class="fixed top-0 right-[-1px] h-5 px-1 py-0.5 ml-4 flex items-center bg-white z-20 shadow-l-white"
+            <li class="fixed top-0 right-[-1px] h-5 px-1 pb-0.5 ml-4 flex items-center bg-white z-20 shadow-l-white"
                 @click="onShowPopUp">
-                <SvgIcon class="w-3 h-4" name="hamburger" />
+                <SvgIcon class="w-2 h-2" name="hamburger" />
             </li>
 
             <!--滑块-->
             <li ref='sliderTarget' :style="sliderStyle"
-                class="absolute h-[19px] bg-zinc-900 rounded-lg duration-200 top-0 mt-[0.5px]">
+                class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200 top-0 mt-1">
             </li>
 
 
             <li v-for="(item, index) in $store.getters.categorys" :key="item.id"
-                class="shrink-0 px-1.5 py-1 pb-2 z-10 duration-200 last:mr-5" :ref="setItemRef"
-                @click="onItemClick(index)" :class="{
+                class="shrink-0 px-1 py-0.5 z-10 duration-200 last:mr-5" :ref="setItemRef" @click="onItemClick(index)"
+                :class="{
                     'text-zinc-100 ': currentItemIndex === index
                 }">
                 {{ item.name }}
@@ -60,7 +60,7 @@ watch(currentItemIndex, (val) => {
     //设置sliderStyle
     sliderStyle.value = {
         // ul 横向滚动位置 + 当前元素的 left 偏移量
-        transform: `translateX(${ulScrollLeft.value + left - 4 + 'px'})`,
+        transform: `translateX(${ulScrollLeft.value + left - 10 + 'px'})`,
         width: width + 'px'
     }
 })
