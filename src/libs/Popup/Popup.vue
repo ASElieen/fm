@@ -9,7 +9,7 @@
             </Transition>
             <!--内容-->
             <Transition name="popup">
-                <div :="$attrs" class="w-screen bg-white z-50 fixed bottom-0" v-if="isOpen">
+                <div :="$attrs" class="w-screen bg-white dark:bg-zinc-800 z-50 fixed bottom-0" v-if="isOpen">
                     <slot />
                 </div>
             </Transition>

@@ -1,15 +1,15 @@
 <template>
-    <div class="bg-white sticky top-0 left-0 z-10">
+    <div class="bg-white dark:bg-zinc-900 sticky top-0 left-0 z-10">
         <ul class="relative flex overflow-x-auto p-1 text-xs text-zinc-600 overflow-hidden" ref="ulTarget">
             <!--右侧按钮-->
-            <li class="fixed top-0 right-[-1px] h-5 px-1 pb-0.5 ml-4 flex items-center bg-white z-20 shadow-l-white"
+            <li class="fixed top-0 right-[-1px] h-5 px-1 pb-0.5 ml-4 flex items-center bg-white dark:bg-zinc-900 z-20 shadow-l-white dark:shadow-l-zinc"
                 @click="onShowPopUp">
                 <SvgIcon class="w-2 h-2" name="hamburger" />
             </li>
 
             <!--滑块-->
             <li ref='sliderTarget' :style="sliderStyle"
-                class="absolute h-[22px] bg-zinc-900 rounded-lg duration-200 top-0 mt-1">
+                class="absolute h-[22px] bg-zinc-900 dark:bg-zinc-800 rounded-lg duration-200 top-0 mt-1">
             </li>
 
 

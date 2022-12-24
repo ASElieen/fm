@@ -3,15 +3,15 @@
         <!--触发区-->
         <template #reference>
             <SvgIconVue name="theme-light"
-                class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-zinc-100/60"
-                fillClass="fill-zinc-900" />
+                class="w-4 h-4 p-1 cursor-pointer rounded-sm duration-200 outline-none hover:bg-zinc-100/60 dark:hover:bg-zinc-900"
+                fillClass="fill-zinc-900 dark:fill-zinc-300" />
         </template>
         <!--展示区-->
         <div class="w-[140px] overflow-hidden">
-            <div class="flex items-center p-1 cursor-pointer rounded hover:bg-zinc-100/60" v-for="item in themeArr"
-                :key="item.id">
-                <SvgIconVue :name="item.icon" class="w-1.5 h-1.5 mr-1" fillClass="fill-zinc-900" />
-                <span class="text-zinc-800 text-sm">{{ item.name }}</span>
+            <div class="flex items-center p-1 cursor-pointer rounded hover:bg-zinc-100/60 dark:hover:bg-zinc-800"
+                v-for="item in themeArr" :key="item.id">
+                <SvgIconVue :name="item.icon" class="w-1.5 h-1.5 mr-1" fillClass="fill-zinc-900 dark:fill-zinc-300" />
+                <span class="text-zinc-800 dark:text-zinc-300 text-sm">{{ item.name }}</span>
             </div>
         </div>
     </PopoverVue>

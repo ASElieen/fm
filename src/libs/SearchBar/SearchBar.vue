@@ -5,7 +5,7 @@
 
         <!--输入框-->
         <input type="text"
-            class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 caret-zinc-400 rounded-xl text-zinc-900 text-sm tracking-wide font-semibold border border-zinc-100 focus:border-red-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
+            class="block w-full h-[44px] pl-4 outline-0 bg-zinc-100 dark:bg-zinc-800 caret-zinc-400 rounded-xl text-zinc-900 text-sm tracking-wide font-semibold border border-zinc-100 dark:border-zinc-700 focus:border-red-300 duration-500 group-hover:bg-white group-hover:border-zinc-200"
             placeholder="搜索" v-model="inputValue" @keyup.enter="onSearchHandler" @focus="onFocusHandler"
             @blur="onBlurHandler">
 
@@ -27,7 +27,7 @@
 
         <!--下拉卡片-->
         <Transition name="slide">
-            <div class="max-h-[368px] w-full text-base overflow-auto bg-white absolute z-20 left-0 top-[56px] p-2 rounded border border-zinc-200 duration-200 hover:shadow-3xl"
+            <div class="max-h-[368px] w-full text-base overflow-auto bg-white dark:bg-zinc-800 absolute z-20 left-0 top-[56px] p-2 rounded border border-zinc-200 dark:border-zinc-600 duration-200 hover:shadow-3xl"
                 v-if="$slots.dropdown" v-show="isFocus">
                 <slot name="dropdown" />
             </div>

@@ -6,8 +6,9 @@
         </div>
 
         <Transition name="popover">
-            <div v-show="isVisible" class="absolute p-1 z-20 bg-white border rounded-md" ref="contentTarget"
-                :style="contentStyle">
+            <div v-show="isVisible"
+                class="absolute p-1 z-20 bg-white dark:bg-zinc-900 border dark:border-zinc-700 rounded-md"
+                ref="contentTarget" :style="contentStyle">
                 <!--匿名插槽 弹层-->
                 <slot />
             </div>
