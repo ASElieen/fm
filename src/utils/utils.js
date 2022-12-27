@@ -1,6 +1,8 @@
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { PC_DEVICE_WIDTH } from '../constants/constants'
+import store from '@/store/vuex'
+import { THEME_DARK, THEME_LIGHT } from '@/constants/constants'
 
 const { width } = useWindowSize()
 export const isMobileTerminal = computed(() => {
@@ -15,5 +17,24 @@ export const useRem = () => {
         let fontSize = window.innerWidth / 10
         fontSize = fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize
         html.style.fontSize = fontSize + 'px'
+    })
+}
+
+//初始化主题
+export const useTheme = () => {
+    watch(() => store.getters.themeType, (val) => {
+        let themeClass = ''
+        switch (val) {
+            case THEME_LIGHT:
+                themeClass = 'light'
+                break
+            case THEME_DARK:
+                themeClass = 'dark'
+                break
+        }
+
+        document.querySelector('html').className = themeClass
+    }, {
+        immediate: true
     })
 }
